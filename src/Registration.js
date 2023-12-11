@@ -86,7 +86,7 @@ function Register() {
                         </div>
                         <div className="text-center">
                         <button type="submit" className="btn btn-primary mx-3">Submit</button>
-                        <Link to="/a" className="btn btn-danger">Back</Link>
+                        {/* <Link to="/a" className="btn btn-danger">Back</Link> */}
                         <br/><br/>
                         <div>
                             <b>If you have an account? </b><br/>
