@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { signOut,getAuth } from "firebase/auth";
+import { initializeApp } from "firebase/app";
 import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 import Footer from "./footer";
@@ -74,10 +76,28 @@ let currentUser=UserAuth()
             })
     }
 
+    const firebaseConfig = {
+        apiKey: "AIzaSyBRwpa1nvwlZpzdA9vQwbogLLA-bM6oRYQ",
+        authDomain: "cart-a65f3.firebaseapp.com",
+        projectId: "cart-a65f3",
+        storageBucket: "cart-a65f3.appspot.com",
+        messagingSenderId: "934653575495",
+        appId: "1:934653575495:web:5d4802f0e419b1d67c0c62",
+        measurementId: "G-20837Z7NNV"
+    };
 
-    const logout = () => {
-        alert("Successfully Logout...!");
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth()
+    const logout = (e) => {
+        e.preventDefault()
+        signOut(auth)
+        .then(()=>{
+            alert("Successfully Logout...!");
         navigate("/login");
+        })
+        .catch((err)=>{
+            alert("error",err)
+        })
     };
 
     // pagination : 
